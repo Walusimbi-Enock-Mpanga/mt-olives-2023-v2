@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Olives</title>
+</head>
+<body>
+    <div class="container image-container" >
+        <img src="./MtOlivesv2.jpg" alt="">
+    </div>
+    <div class="container table-container">
+        <!-- <input type="checkbox" id="myCheckbox" onclick="saveState()"> -->
+        <!-- <input type="checkbox" id="myCheckbox"> -->
+        <table>
+            <tr id="mainRow">
+                <th colspan="2"><h1>Day</h1></th>
+                <th><h1>BreakFast</h1></th>
+                <th><h1>Lunch</h1></th>
+                <th><h1>Supper</h1></th>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Sabbath</h3></td>
+                <td><input type="checkbox" name="checkbox" id="firstsabbathBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="firstsabbathLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="firstsabbathSupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Sunday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="sundayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="sundayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="sundaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Monday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="mondayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="mondayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="mondaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Tuesday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="tuesdayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="tuesdayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="tuesdaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Wednesday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="wednesdayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="wednesdayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="wednesdaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Thursday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="thursdayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="thursdayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="thursdaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Friday</h3></td>
+                <td><input type="checkbox" name="checkbox" id="fridayBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="fridayLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="fridaySupper"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>Sabbath</h3></td>
+                <td><input type="checkbox" name="checkbox" id="sabbathBreak"><span class="checkmark"></span></td>
+                <td><input type="checkbox" name="checkbox" id="sabbathLunch"></td>
+                <td><input type="checkbox" name="checkbox" id="sabbathSupper"></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+    <style>
+        * { box-sizing: border-box;}
+        *::after,*::before{box-sizing: inherit;}
+        body{
+            background-color: teal;
+            overflow: visible;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        }
+        img {
+            width: 100%;
+            box-shadow: -8px 8px 12px rgb(79, 85, 81);
+        }
+        .container {
+            width: 100vw;
+        }
+        table {
+            width: 100vw;
+            box-shadow: -8px 8px 12px rgb(79, 85, 81);
+            background-color: rgba(81, 173, 109, 0.2);
+        }
+        tr:nth-child(odd){
+            color: white;
+        }
+        tr:nth-child(even){
+            background-color: white;
+        }
+        input[type='checkbox'] {
+            position: relative;
+            left: 42%;
+            cursor: pointer;
+            height: 2em;
+            width: 2em;
+        }
+        h1{
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3{
+            font-size: 1em;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+    </style>
+    <!-- JS -->
+    <script>
+    document.querySelectorAll("input[type='checkbox']").forEach(element=>{
+    // Set the checkbox to the saved state (if any)
+    element.checked = localStorage.getItem("checkbox_id_" + element.id) === "true"
+  
+    // When the checkbox changes, save the changes
+    element.addEventListener("input", (event)=>{
+    console.log("checkbox_id_" + element.id)
+    localStorage.setItem("checkbox_id_" + element.id, element.checked);
+        })
+    })
+    </script>
+</html>
